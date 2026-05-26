@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 
 const API_URL =
-  "https://sem-app.hf.space/ask";
+  "http://varenya10-sem-app.hf.space/ask";
 
 function App() {
   const [prompt, setPrompt] = useState("");
