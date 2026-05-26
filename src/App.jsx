@@ -59,6 +59,7 @@ function App() {
       <button
         className={loading ? "loading" : ""}
         onClick={genResponse}
+        disabled={loading}
       >
         {loading ? "Fetching..." : "Fetch"}
       </button>
