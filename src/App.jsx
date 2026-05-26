@@ -57,7 +57,9 @@ function App() {
       </button>
 
       <div className="response-box">
-  <p>{response}</p>
+  <div className="answer-text">
+  {response}
+</div>
 
   {docs.length > 0 && (
     <>
