@@ -28,7 +28,14 @@ function App() {
         }
       );
 
-      setResponse(res.data.answer);
+      let cleaned = res.data.answer;
+
+      cleaned = cleaned
+        .replace(/Context:[\s\S]*?Question:/i, "")
+        .replace(/Answer:/i, "")
+        .trim();
+      
+      setResponse(cleaned);
       setDocs(res.data.retrieved_docs);
 
     } catch (error) {
