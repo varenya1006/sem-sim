@@ -57,9 +57,12 @@ function App() {
       </button>
 
       <div className="response-box">
-  <div className="answer-text">
-  {response}
-</div>
+
+  {response && (
+    <div className="answer-text">
+      {response}
+    </div>
+  )}
 
   {docs.length > 0 && (
     <>
@@ -72,6 +75,7 @@ function App() {
       </ul>
     </>
   )}
+
 </div>
     </div>
   );
