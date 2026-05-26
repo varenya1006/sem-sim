@@ -57,22 +57,20 @@ function App() {
       </button>
 
       <div className="response-box">
-        <h2>AI Response</h2>
+  <p>{response}</p>
 
-        <p>{response}</p>
+  {docs.length > 0 && (
+    <>
+      <h2>Retrieved Docs</h2>
 
-        {docs.length > 0 && (
-          <>
-            <h2>Retrieved Docs</h2>
-
-            <ul>
-              {docs.map((doc, index) => (
-                <li key={index}>{doc}</li>
-              ))}
-            </ul>
-          </>
-        )}
-      </div>
+      <ul>
+        {docs.map((doc, index) => (
+          <li key={index}>{doc}</li>
+        ))}
+      </ul>
+    </>
+  )}
+</div>
     </div>
   );
 }
