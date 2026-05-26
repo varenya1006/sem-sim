@@ -2,8 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_URL =
-  "https://varenya10-sem-app.hf.space/ask";
+const API_URL = "https://varenya10-sem-app.hf.space/ask";
 
 function App() {
   const [prompt, setPrompt] = useState("");
@@ -16,17 +15,14 @@ function App() {
   }
 
   async function genResponse() {
-    if (!prompt) return;
+    if (!prompt.trim()) return;
 
     setLoading(true);
 
     try {
-      const res = await axios.post(
-        API_URL,
-        {
-          query: prompt,
-        }
-      );
+      const res = await axios.post(API_URL, {
+        query: prompt,
+      });
 
       let cleaned = res.data.answer;
 
@@ -34,10 +30,9 @@ function App() {
         .replace(/Context:[\s\S]*?Question:/i, "")
         .replace(/Answer:/i, "")
         .trim();
-      
+
       setResponse(cleaned);
       setDocs(res.data.retrieved_docs);
-
     } catch (error) {
       console.log(error);
       setResponse("Something went wrong");
@@ -65,26 +60,19 @@ function App() {
       </button>
 
       <div className="response-box">
+        {response && <div className="answer-text">{response}</div>}
 
-  {response && (
-    <div className="answer-text">
-      {response}
-    </div>
-  )}
-
-  {docs.length > 0 && (
-    <>
-      <h2>Retrieved Docs</h2>
-
-      <ul>
-        {docs.map((doc, index) => (
-          <li key={index}>{doc}</li>
-        ))}
-      </ul>
-    </>
-  )}
-
-</div>
+        {docs.length > 0 && (
+          <>
+            <h2>Retrieved Docs</h2>
+            <ul>
+              {docs.map((doc, index) => (
+                <li key={index}>{doc}</li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
     </div>
   );
 }
