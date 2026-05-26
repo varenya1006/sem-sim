@@ -51,7 +51,7 @@ function App() {
       <h1>AI Semantic Search</h1>
 
       <textarea
-        placeholder="Ask something..."
+        placeholder="Ask something... e.g. What is machine learning?"
         value={prompt}
         onChange={handleChange}
       />
