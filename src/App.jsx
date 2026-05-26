@@ -53,7 +53,7 @@ function App() {
         className={loading ? "loading" : ""}
         onClick={genResponse}
       >
-        {loading ? "Generating..." : "Generate"}
+        {loading ? "Fetching..." : "Fetch"}
       </button>
 
       <div className="response-box">
